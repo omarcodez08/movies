@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:movies/core/resources/colors_manager.dart';
+import 'package:movies/core/resources/app_theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:movies/core/resources/routes_manager.dart';
 import 'package:movies/UI/on_boarding/model/on_boarding_model.dart';
@@ -64,10 +64,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: AppTheme.darkTheme.scaffoldBackgroundColor,
       body: PageView.builder(
         controller: pageController,
-          physics: const NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         itemCount: OnBoardingModel.onboardingList.length,
         onPageChanged: (index) {
           setState(() {
@@ -77,7 +77,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         itemBuilder: (context, index) {
           var item = OnBoardingModel.onboardingList[index];
 
-          final gradientColors = [
+final gradientColors = [
             const Color(0xFF084250),
             const Color(0xFF85210E),
             const Color(0xFF4C2471),
@@ -87,7 +87,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
           return Stack(
             children: [
-
               Container(
                 height: index == 0
                     ? MediaQuery.sizeOf(context).height
@@ -101,7 +100,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               ),
 
               if (index >= 1)
-                Positioned(
+                     Positioned(
                   top: 0,
                   left: 0,
                   right: 0,
@@ -113,7 +112,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         end: Alignment.bottomCenter,
                         colors: [
                           const Color(0x00084250),
-                          gradientColors[index - 1],
+                           gradientColors[index - 1],
                         ],
                       ),
                     ),
@@ -135,8 +134,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         Text(
                           item.title,
                           textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            color: Colors.white,
+                          style: TextStyle(
+                            color: AppTheme.darkTheme.colorScheme.onSurface,
                             fontSize: 24,
                             fontWeight: FontWeight.w700,
                           ),
@@ -145,8 +144,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         Text(
                           item.description ?? "",
                           textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            color: Colors.white,
+                          style: TextStyle(
+                            color: AppTheme.darkTheme.colorScheme.onSurface,
                             fontSize: 20,
                             fontWeight: FontWeight.w400,
                           ),
@@ -156,12 +155,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           width: double.infinity,
                           child: ElevatedButton(
                             onPressed: nextPage,
-                            style: ElevatedButton.styleFrom(
-                              padding: const EdgeInsets.symmetric(vertical: 15),
-                              backgroundColor: ColorsManager.accentYellow,
-                              foregroundColor: ColorsManager.primaryDark,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15),
+                            style: AppTheme.darkTheme.elevatedButtonTheme.style
+                                ?.copyWith(
+                              padding: const WidgetStatePropertyAll(
+                                EdgeInsets.symmetric(vertical: 15),
                               ),
                             ),
                             child: const Text(
@@ -178,7 +175,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   ),
                 )
               else
-
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: Container(
@@ -189,9 +185,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       right: 23.5,
                       bottom: 16,
                     ),
-                    decoration: const BoxDecoration(
-                      color: ColorsManager.primaryDark,
-                      borderRadius: BorderRadius.only(
+                    decoration: BoxDecoration(
+                      color: AppTheme.darkTheme.scaffoldBackgroundColor,
+                      borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(40),
                         topRight: Radius.circular(40),
                       ),
@@ -204,8 +200,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           Text(
                             item.title,
                             textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              color: Colors.white,
+                            style: TextStyle(
+                              color: AppTheme.darkTheme.colorScheme.onSurface,
                               fontSize: 24,
                               fontWeight: FontWeight.w700,
                             ),
@@ -214,8 +210,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           Text(
                             item.description ?? "",
                             textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              color: Colors.white,
+                            style: TextStyle(
+                              color: AppTheme.darkTheme.colorScheme.onSurface,
                               fontSize: 20,
                               fontWeight: FontWeight.w400,
                             ),
@@ -225,16 +221,15 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             width: double.infinity,
                             child: ElevatedButton(
                               onPressed: nextPage,
-                              style: ElevatedButton.styleFrom(
-                                padding: const EdgeInsets.symmetric(vertical: 15),
-                                backgroundColor: ColorsManager.accentYellow,
-                                foregroundColor: ColorsManager.primaryDark,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
+                              style: AppTheme.darkTheme.elevatedButtonTheme.style
+                                  ?.copyWith(
+                                padding: const WidgetStatePropertyAll(
+                                  EdgeInsets.symmetric(vertical: 15),
                                 ),
                               ),
                               child: Text(
-                                index == OnBoardingModel.onboardingList.length - 1
+                                index ==
+                                    OnBoardingModel.onboardingList.length - 1
                                     ? "Finish"
                                     : "Next",
                                 style: const TextStyle(
@@ -251,10 +246,13 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                               child: OutlinedButton(
                                 onPressed: previousPage,
                                 style: OutlinedButton.styleFrom(
-                                  padding: const EdgeInsets.symmetric(vertical: 15),
-                                  foregroundColor: ColorsManager.accentYellow,
-                                  side: const BorderSide(
-                                    color: ColorsManager.accentYellow,
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 15,
+                                  ),
+                                  foregroundColor:
+                                  AppTheme.darkTheme.colorScheme.primary,
+                                  side: BorderSide(
+                                    color: AppTheme.darkTheme.colorScheme.primary,
                                   ),
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(15),
