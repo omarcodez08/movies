@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:movies/core/resources/colors_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -66,6 +67,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       backgroundColor: Colors.black,
       body: PageView.builder(
         controller: pageController,
+          physics: const NeverScrollableScrollPhysics(),
         itemCount: OnBoardingModel.onboardingList.length,
         onPageChanged: (index) {
           setState(() {
@@ -87,16 +89,23 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             children: [
 
               Container(
-                height: MediaQuery.sizeOf(context).height * 0.74,
+                height: index == 0
+                    ? MediaQuery.sizeOf(context).height
+                    : MediaQuery.sizeOf(context).height * 0.74,
                 width: double.infinity,
                 child: Image.asset(
                   item.image,
                   fit: BoxFit.cover,
+                  width: double.infinity,
                 ),
               ),
 
               if (index >= 1)
-                Positioned.fill(
+                Positioned(
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: MediaQuery.sizeOf(context).height * 0.74,
                   child: Container(
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
@@ -169,7 +178,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   ),
                 )
               else
-              // 4. محتوى باقي الصفحات (الـ Container الأسود السفلي)
+
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: Container(
