@@ -35,5 +35,15 @@
   "verify_email": "Verify Email",
   "reset_link_sent": "Password reset link sent to your email.",
   "reset_password_failed": "Failed to send reset email. Please try again.",
-  "no_user_found_for_email": "No account found for this email."
+  "no_user_found_for_email": "No account found for this email.",
+  "watch_list": "Watch List",
+  "history": "History",
+  "edit_profile": "Edit Profile",
+  "exit": "Exit",
+  "pick_avatar": "Pick Avatar",
+  "reset_password": "Reset Password",
+  "delete_account": "Delete Account",
+  "update_data": "Update Data",
+  "profile_updated": "Profile updated successfully",
+  "delete_account_failed": "Failed to delete account. Please log in again and retry."
 }
