@@ -12,4 +12,21 @@ class AssetsManager {
   static const String searchIcon = 'assets/icons/search.svg';
   static const String exploreIcon = 'assets/icons/explore.svg';
   static const String profileIcon = 'assets/icons/profile.svg';
+  static const String googleIcon = 'assets/icons/google_.svg';
+  static const String lockIcon = 'assets/icons/lock.svg';
+  static const String mailIcon = 'assets/icons/mail.svg';
+  static const String phoneIcon = 'assets/icons/phone.svg';
+  static const String identificationIcon = 'assets/icons/Identification.svg';
+  static const String egFlagIcon = 'assets/images/eg.png';
+  static const String usFlagIcon = 'assets/images/us.png';
+  static const String Avatar1 = 'assets/images/Avatar 1.png';
+  static const String Avatar2 = 'assets/images/Avatar 2.png';
+  static const String Avatar3 = 'assets/images/Avatar 3.png';
+  static const String Avatar4 = 'assets/images/Avatar 4.png';
+  static const String Avatar5 = 'assets/images/Avatar 5.png';
+  static const String Avatar6 = 'assets/images/Avatar 6.png';
+  static const String Avatar7 = 'assets/images/Avatar 7.png';
+  static const String Avatar8 = 'assets/images/Avatar 8.png';
+  static const String Avatar9 = 'assets/images/Avatar 9.png';
+  static const String forgotPass = 'assets/images/Forgot password-bro 1.png';
 }
