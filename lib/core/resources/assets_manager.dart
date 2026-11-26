@@ -29,4 +29,5 @@ class AssetsManager {
   static const String Avatar8 = 'assets/images/Avatar 8.png';
   static const String Avatar9 = 'assets/images/Avatar 9.png';
   static const String forgotPass = 'assets/images/Forgot password-bro 1.png';
+  static const String user = 'assets/icons/User-4.svg';
 }
